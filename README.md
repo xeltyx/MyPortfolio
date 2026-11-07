@@ -20,3 +20,15 @@ bun run dev
 ```
 
 Open the localhost URL printed in the terminal.
+
+## Deploy to GitHub Pages
+
+Build and publish the static site to the `gh-pages` branch:
+
+```powershell
+npm run deploy
+```
+
+In the repository's **Settings → Pages**, choose **Deploy from a branch**, then
+select the `gh-pages` branch and `/ (root)`. The site will be available at
+`https://xeltyx.github.io/MyPortfolio/`.

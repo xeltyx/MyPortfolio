@@ -1,16 +1,20 @@
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import react from "@vitejs/plugin-react";
-import { nitro } from "nitro/vite";
 import { defineConfig } from "vite";
 
-export default defineConfig(({ command }) => ({
+export default defineConfig({
+  base: "/MyPortfolio/",
   plugins: [
     tailwindcss(),
     tanstackStart({
       server: { entry: "server" },
+      prerender: {
+        enabled: true,
+        autoSubfolderIndex: true,
+        failOnError: true,
+      },
     }),
-    ...(command === "build" ? [nitro({ preset: "cloudflare-module" })] : []),
     react(),
   ],
   server: {
@@ -44,4 +48,4 @@ export default defineConfig(({ command }) => ({
   css: {
     transformer: "lightningcss",
   },
-}));
+});
