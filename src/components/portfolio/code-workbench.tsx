@@ -282,26 +282,29 @@ export function CodeWorkbench() {
       <div
         role="group"
         aria-label="Interactive code editor"
-        className="float-slow h-[380px] w-full overflow-hidden rounded-xl border border-white/10 bg-[#0e1117] font-mono text-xs shadow-2xl shadow-black/30 lg:h-[440px]"
+        className="float-slow h-[380px] w-full overflow-hidden rounded-xl border border-border bg-[#f7f6f2] font-mono text-xs text-slate-800 shadow-2xl shadow-black/10 dark:border-white/10 dark:bg-[#0e1117] dark:text-slate-200 dark:shadow-black/30 lg:h-[440px]"
       >
-        <div className="flex h-10 items-center justify-between border-b border-white/10 px-3">
+        <div className="flex h-10 items-center justify-between border-b border-border px-3 dark:border-white/10">
           <div className="flex items-center gap-1.5">
             <span className="size-2 rounded-full bg-[#ff6b6b]" />
             <span className="size-2 rounded-full bg-[#ffd166]" />
             <span className="size-2 rounded-full bg-[#06d6a0]" />
           </div>
-          <span className="text-[10px] text-slate-500">eriko-portfolio</span>
+          <span className="text-[10px] text-slate-600 dark:text-slate-500">eriko-portfolio</span>
           <span className="text-[10px] text-emerald-400">● Running</span>
         </div>
         <div className="flex h-[338px] lg:h-[398px]">
-          <aside className="hidden w-36 shrink-0 overflow-y-auto border-r border-white/10 p-3 text-[9px] leading-6 text-slate-500 sm:block">
+          <aside className="hidden w-36 shrink-0 overflow-y-auto border-r border-border p-3 text-[9px] leading-6 text-slate-600 dark:border-white/10 dark:text-slate-500 sm:block">
             <p className="mb-1 uppercase tracking-wider text-slate-600">Explorer</p>
-            <p className="truncate text-slate-400" title={`${language.label} project`}>
+            <p
+              className="truncate text-slate-700 dark:text-slate-400"
+              title={`${language.label} project`}
+            >
               ⌄ {language.label.toLowerCase()}-project
             </p>
             {language.folders.map((folder) => (
               <div key={folder.name} className="mt-1">
-                <p className="truncate pl-2 text-slate-500" title={folder.name}>
+                <p className="truncate pl-2 text-slate-600 dark:text-slate-500" title={folder.name}>
                   ⌄ {folder.name}
                 </p>
                 {folder.files.map((file) => (
@@ -311,7 +314,7 @@ export function CodeWorkbench() {
                     onClick={() => selectFile(file)}
                     aria-pressed={activeFile?.path === file.path}
                     title={file.path}
-                    className={`block w-full truncate rounded pl-4 text-left transition-colors hover:bg-white/5 hover:text-slate-200 ${activeFile?.path === file.path ? "text-sky-300" : "text-slate-500"}`}
+                    className={`block w-full truncate rounded pl-4 text-left transition-colors hover:bg-black/5 hover:text-slate-900 dark:hover:bg-white/5 dark:hover:text-slate-200 ${activeFile?.path === file.path ? "text-sky-700 dark:text-sky-300" : "text-slate-600 dark:text-slate-500"}`}
                   >
                     <span className={getFileColor(file.name)}>◇</span> {file.name}
                   </button>
@@ -323,7 +326,7 @@ export function CodeWorkbench() {
             <div
               role="group"
               aria-label="Open source file"
-              className="hide-scrollbar flex h-9 items-stretch overflow-x-auto border-b border-white/10 bg-white/[0.03]"
+              className="hide-scrollbar flex h-9 items-stretch overflow-x-auto border-b border-border bg-black/[0.03] dark:border-white/10 dark:bg-white/[0.03]"
             >
               {files.map((file) => (
                 <button
@@ -332,17 +335,17 @@ export function CodeWorkbench() {
                   onClick={() => selectFile(file)}
                   aria-pressed={activeFile?.path === file.path}
                   title={file.path}
-                  className={`flex shrink-0 items-center gap-1.5 border-r border-white/10 px-3 text-[10px] transition-colors hover:bg-white/5 ${activeFile?.path === file.path ? "bg-[#0e1117] text-slate-200" : "text-slate-500"}`}
+                  className={`flex shrink-0 items-center gap-1.5 border-r border-border px-3 text-[10px] transition-colors hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/5 ${activeFile?.path === file.path ? "bg-[#f7f6f2] text-slate-800 dark:bg-[#0e1117] dark:text-slate-200" : "text-slate-600 dark:text-slate-500"}`}
                 >
                   <span className={getFileColor(file.name)}>◇</span>
                   {file.name}
                 </button>
               ))}
             </div>
-            <pre className="flex-1 overflow-hidden px-4 py-3 text-[11px] leading-[1.8] text-slate-200">
+            <pre className="flex-1 overflow-hidden px-4 py-3 text-[11px] leading-[1.8] text-slate-800 dark:text-slate-200">
               {lines.map((line, index) => (
                 <span key={index} className="flex min-h-[1.8em]">
-                  <span className="mr-3 w-3 shrink-0 select-none text-right text-slate-600">
+                  <span className="mr-3 w-3 shrink-0 select-none text-right text-slate-500 dark:text-slate-600">
                     {index + 1}
                   </span>
                   <span className="whitespace-pre-wrap break-words">
@@ -352,7 +355,7 @@ export function CodeWorkbench() {
                 </span>
               ))}
             </pre>
-            <div className="flex h-8 items-center gap-2 border-t border-white/10 px-3 text-[10px] text-slate-500">
+            <div className="flex h-8 items-center gap-2 border-t border-border px-3 text-[10px] text-slate-600 dark:border-white/10 dark:text-slate-500">
               <span className="text-emerald-400">❯</span>
               <span>{language.command}</span>
               <span className="ml-auto text-emerald-400">ready</span>

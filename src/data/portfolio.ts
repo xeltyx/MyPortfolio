@@ -193,4 +193,5 @@ export const skills = [
   "Laravel & PHP",
   "Node.js",
   "Firebase",
+  "Git",
 ];

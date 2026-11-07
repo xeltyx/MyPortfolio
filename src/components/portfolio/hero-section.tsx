@@ -50,8 +50,9 @@ export function HeroSection() {
           className="animate-rise mt-6 max-w-lg text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8"
           style={{ animationDelay: "240ms" }}
         >
-          Passionate programmer who enjoys turning ideas into thoughtful digital experiences. I
-          build responsive web and mobile applications with React, TypeScript, and Flutter.
+          Passionate programmer with 2+ years of experience in web development and 6 months of
+          experience in UI/UX design and mobile development. I build responsive applications with
+          React, TypeScript, and Flutter.
         </p>
         <div className="animate-rise mt-9 flex flex-wrap gap-3" style={{ animationDelay: "360ms" }}>
           <Button asChild className="group h-12 rounded-full px-6 shadow-md shadow-primary/10">
