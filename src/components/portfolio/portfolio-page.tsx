@@ -27,7 +27,7 @@ export function PortfolioPage() {
           aria-label="Eriko Ferdian home"
           className="shrink-0 font-display text-base font-bold tracking-tight sm:text-lg"
         >
-          ERIKO<span className="text-accent">FERDIAN</span>
+          ERIKO <span className="text-accent">FERDIAN</span>
         </a>
         <nav
           aria-label="Main navigation"
