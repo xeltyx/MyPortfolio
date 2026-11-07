@@ -43,7 +43,7 @@ export function HeroSection() {
           style={{ animationDelay: "180ms" }}
         >
           <span className="block">
-            <Typer words={["WEB & APP DEVELOPER"]} />
+            <Typer words={["WEB & MOBILE DEVELOPER"]} />
           </span>
         </h2>
         <p
@@ -82,10 +82,10 @@ export function HeroSection() {
       </div>
       <a
         href="#services"
-        aria-label="Scroll to services"
+        aria-label="Scroll to expertise"
         className="absolute bottom-4 left-0 z-10 hidden items-center gap-2 font-mono text-xs text-muted-foreground md:flex"
       >
-        <ArrowDown className="size-3" /> Services
+        <ArrowDown className="size-3" /> Expertise
       </a>
     </section>
   );

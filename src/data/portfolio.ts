@@ -25,6 +25,7 @@ export type Job = {
 export type Project = {
   title: string;
   category: string;
+  summary: string;
   description: string;
   tags: string[];
   image: string;
@@ -50,8 +51,9 @@ export const projects: Project[] = [
   {
     title: "Flutter Point Of Sale",
     category: "Mobile app",
+    summary: "An Android point-of-sale app built with Flutter.",
     description:
-      "Designed the UI/UX prototype for an Android point-of-sale app, then brought the experience to life with Flutter and REST API integration.",
+      "In this project, I designed the UI/UX prototype for an Android point-of-sale app, then built the app with Flutter and integrated it with REST APIs.",
     tags: ["Flutter", "Dart", "FIGMA"],
     image: projectPosImage,
     imageAlt: "BasicPOS application screen",
@@ -82,8 +84,9 @@ export const projects: Project[] = [
   {
     title: "Flutter Loyalty App",
     category: "Mobile app",
+    summary: "A Flutter loyalty app with barcode functionality.",
     description:
-      "A loyalty-based mobile app built with Flutter, featuring barcode functionality through a custom plugin.",
+      "In this project, I created a loyalty-based mobile app with Flutter and added barcode functionality using a custom plugin.",
     tags: ["Flutter", "Dart"],
     image: projectLoyaltyImage,
     imageAlt: "Flutter loyalty application screen showing rewards and benefits",
@@ -92,8 +95,9 @@ export const projects: Project[] = [
   {
     title: "Milim Game Development",
     category: "Game development",
+    summary: "A top-down survival horror game developed with Unreal Engine 4.",
     description:
-      "A top-down survival horror game focused on running and hiding from enemies, developed with Unreal Engine 4.",
+      "In this project, I developed a top-down survival horror game in Unreal Engine 4, where players must run and hide from enemies.",
     tags: ["Unreal Engine 4", "Blueprints"],
     image: projectMilimImage,
     imageAlt: "Gameplay screenshot from the Milim survival horror game",
@@ -104,8 +108,9 @@ export const projects: Project[] = [
   {
     title: "E-Commerce for Gaming Equipment",
     category: "Web application",
+    summary: "An online store for gaming equipment.",
     description:
-      "An e-commerce website built with C# and .NET, integrating the Doku payment gateway and MySQL / Oracle databases.",
+      "In this project, I built an e-commerce website for gaming equipment with C# and .NET, integrated the Doku payment gateway, and used MySQL and Oracle databases.",
     tags: ["C#", ".NET", "Doku API", "MySQL"],
     image: projectEcommerceImage,
     imageAlt: "Gaming equipment e-commerce website screen",
@@ -116,8 +121,9 @@ export const projects: Project[] = [
   {
     title: "English Learning App",
     category: "Mobile app",
+    summary: "An Android English-learning app with courses and a personal diary.",
     description:
-      "An Android English-learning course app with custom animation and voice-over plugins, plus a personal diary feature.",
+      "In this project, I created an Android English-learning course app with custom animation and voice-over plugins, as well as a personal diary feature.",
     tags: ["Flutter", "Dart", "Android"],
     image: projectEnglishLearningImage,
     imageAlt: "English learning application screen",
@@ -126,8 +132,9 @@ export const projects: Project[] = [
   {
     title: "Corporate Internet Banking (OCTO Biz)",
     category: "Corporate banking",
+    summary: "A corporate internet banking platform for businesses.",
     description:
-      "Contributed to the OCTO Biz platform using React.js and TypeScript, building responsive interfaces and integrating APIs with design, backend, and QA teams.",
+      "In this project, I contributed to the OCTO Biz platform by building responsive interfaces with React.js and TypeScript and integrating APIs in collaboration with design and backend teams. Additionally, I collaborated with the QA team to minimize bugs and ensure the application runs smoothly.",
     tags: ["React.js", "TypeScript", "REST API", "Yup", "React Hook"],
     image: projBanking,
     imageAlt: "OCTO Biz corporate banking sign-in page",
@@ -189,11 +196,11 @@ export const skills = [
   "React JS",
   "TypeScript",
   "HTML / CSS",
+  "Figma",
   "REST API",
-  "SQL Database",
+  "SQL",
   "Flutter / Dart",
   "Laravel & PHP",
   "Node.js",
-  "Firebase",
   "Git",
 ];

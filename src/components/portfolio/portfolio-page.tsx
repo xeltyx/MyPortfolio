@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AboutSection } from "./about-section";
@@ -10,7 +11,7 @@ import { ServicesSection } from "./services-section";
 import { ThemeToggle } from "./theme-toggle";
 
 const navigationLinks = [
-  { label: "Services", href: "#services" },
+  { label: "Expertise", href: "#services" },
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
@@ -18,10 +19,35 @@ const navigationLinks = [
 ];
 
 export function PortfolioPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
+
   return (
     <div className="w-full px-5 sm:px-8 lg:px-12">
       <PortfolioCursor />
-      <header className="sticky top-0 z-10 -mx-5 flex h-[4.5rem] items-center justify-between gap-4 border-b bg-background/85 px-5 shadow-sm shadow-black/[0.02] backdrop-blur-xl sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
+      <header className="sticky top-0 z-50 -mx-5 flex h-[4.5rem] items-center justify-between gap-4 border-b bg-background/85 px-5 shadow-sm shadow-black/[0.02] backdrop-blur-xl sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
         <a
           href="#top"
           aria-label="Eriko Ferdian home"
@@ -41,32 +67,36 @@ export function PortfolioPage() {
           <ThemeToggle />
         </nav>
         <div className="flex items-center gap-2 md:hidden">
-          <details className="group relative">
+          <div className="relative" ref={menuRef}>
             <Button
-              asChild
+              type="button"
               variant="outline"
               size="icon"
-              className="size-10 rounded-full bg-card [&::-webkit-details-marker]:hidden"
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+              onClick={() => setIsMenuOpen((open) => !open)}
+              className="size-10 rounded-full bg-card"
             >
-              <summary aria-label="Open navigation menu" className="list-none">
-                <Menu aria-hidden="true" />
-              </summary>
+              <Menu aria-hidden="true" />
             </Button>
-            <div className="absolute right-0 top-full z-50 mt-2 hidden min-w-44 rounded-lg border bg-popover p-1 text-popover-foreground shadow-lg group-open:block">
+            <div
+              className={[
+                "absolute right-[-0.5rem] top-full z-50 mt-3 min-w-52 rounded-2xl border bg-popover p-2 text-popover-foreground shadow-[0_18px_40px_rgba(0,0,0,0.2)] transition-all duration-200",
+                isMenuOpen ? "visible opacity-100 translate-y-0" : "invisible pointer-events-none opacity-0 -translate-y-1",
+              ].join(" ")}
+            >
               {navigationLinks.map(({ label, href }) => (
                 <a
                   key={href}
                   href={href}
-                  onClick={(event) =>
-                    event.currentTarget.closest("details")?.removeAttribute("open")
-                  }
-                  className="block rounded-sm px-3 py-2 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block rounded-xl px-3 py-2.5 text-base font-medium text-foreground outline-none transition-colors hover:bg-accent/10 hover:text-foreground focus-visible:bg-accent/10 focus-visible:text-foreground"
                 >
                   {label}
                 </a>
               ))}
             </div>
-          </details>
+          </div>
           <ThemeToggle />
         </div>
       </header>

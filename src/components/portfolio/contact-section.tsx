@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./reveal";
@@ -50,6 +50,13 @@ export function ContactSection() {
               <Mail className="size-4 shrink-0 text-accent" aria-hidden="true" />
               {emailAddress}
             </Button>
+            <a
+              href="tel:+6281289770909"
+              className="link-underline inline-flex items-center gap-2 text-muted-foreground hover:text-foreground"
+            >
+              <Phone className="size-4 shrink-0 text-accent" aria-hidden="true" />
+              081289770909
+            </a>
             <span className="inline-flex items-center gap-2">
               <MapPin className="size-4 text-accent" aria-hidden="true" />
               Sidoarjo, Indonesia

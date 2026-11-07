@@ -75,14 +75,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Eriko Ferdian — IT Programmer" },
+      { title: "Eriko Ferdian" },
       {
         name: "description",
         content:
           "Portfolio of Eriko Ferdian, IT programmer working with React, TypeScript and Flutter.",
       },
       { name: "author", content: "Eriko Ferdian" },
-      { property: "og:title", content: "Eriko Ferdian — IT Programmer" },
+      { property: "og:title", content: "Eriko Ferdian" },
       {
         property: "og:description",
         content:

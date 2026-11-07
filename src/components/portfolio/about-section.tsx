@@ -35,7 +35,7 @@ export function AboutSection() {
             <p className="mt-2 leading-6 text-muted-foreground">Bachelor of Computer Science</p>
           </div>
           <p className="mb-4 mt-8 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground sm:text-xs">
-            Toolkit
+            Skills
           </p>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (

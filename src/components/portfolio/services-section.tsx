@@ -1,4 +1,4 @@
-import { Code2, MonitorSmartphone, Palette } from "lucide-react";
+import { Code2, Palette, Smartphone } from "lucide-react";
 import { Reveal } from "./reveal";
 import { Section } from "./section";
 
@@ -7,28 +7,28 @@ const services = [
     Icon: Palette,
     title: "UI/UX Design",
     description:
-      "I turn requirements into clear user flows and polished interfaces, balancing usability, accessibility, and visual consistency.",
+      "I turn requirements into clear user flows and polished interfaces, balancing usability, accessibility, and visual consistency across every screen and interaction.",
     number: "01",
   },
   {
     Icon: Code2,
     title: "Web Development",
     description:
-      "I build responsive web experiences with thoughtful interactions, maintainable code, and reliable integrations.",
+      "I build responsive web experiences with thoughtful interactions, maintainable code, and reliable integrations, keeping performance and accessibility in mind.",
     number: "02",
   },
   {
-    Icon: MonitorSmartphone,
-    title: "App Development",
+    Icon: Smartphone,
+    title: "Mobile Development",
     description:
-      "I develop mobile and desktop applications that make everyday tasks easier through intuitive, dependable experiences.",
+      "I develop mobile applications with intuitive workflows, polished interfaces, and dependable features that make everyday tasks easier.",
     number: "03",
   },
 ];
 
 export function ServicesSection() {
   return (
-    <Section id="services" label="01 — Services" variant="up">
+    <Section id="services" label="01 — Expertise" variant="up">
       <Reveal>
         <div className="mb-10 max-w-2xl sm:mb-12">
           <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">

@@ -53,7 +53,7 @@ export function ProjectsSection() {
                   </span>
                   <span className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
                     {String(index + 1).padStart(2, "0")}
-                    <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <ArrowUpRight className="size-4 transition-[color,transform] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
                   </span>
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground sm:text-xs">
@@ -63,7 +63,7 @@ export function ProjectsSection() {
                   {project.title}
                 </span>
                 <span className="mt-3 flex-1 text-sm leading-6 text-muted-foreground">
-                  {project.description}
+                  {project.summary}
                 </span>
                 <span className="mt-5 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
