@@ -21,8 +21,8 @@ bun run dev
 
 Open the localhost URL printed in the terminal.
 
-## Deploy to GitHub Pages
+## Deploy to Vercel
 
-Push changes to `main` to build and deploy the static site with GitHub Actions.
-In the repository's **Settings → Pages**, set the source to **GitHub Actions**.
-The site will be available at `https://xeltyx.github.io/personal-portfolio/`.
+Import the repository into Vercel. The included `vercel.json` builds the
+prerendered site and publishes `dist/client`. Pushes to the connected branch
+will deploy automatically.
