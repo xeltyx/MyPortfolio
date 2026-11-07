@@ -1,16 +1,24 @@
 import { ArrowUpRight, Code2, Gamepad2, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { projects, type Project } from "@/data/portfolio";
+import { projects, type Project, type ProjectScreenshot } from "@/data/portfolio";
 import { Reveal } from "./reveal";
 import { Section } from "./section";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const categoryIcons: Record<string, typeof Code2> = {
   "Mobile app": Smartphone,
@@ -76,34 +84,7 @@ export function ProjectsSection() {
         <DialogContent className="max-h-[90dvh] overflow-y-auto rounded-2xl p-6 sm:max-w-2xl sm:p-8">
           {activeProject && (
             <div className="flex flex-col gap-6">
-              <div
-                className={`flex w-full items-center justify-center ${
-                  activeProject.displayAspectRatio
-                    ? "aspect-video overflow-hidden rounded-lg"
-                    : "h-[min(42dvh,28rem)]"
-                }`}
-              >
-                <img
-                  src={activeProject.image}
-                  alt={activeProject.imageAlt}
-                  className={
-                    activeProject.displayAspectRatio
-                      ? "h-full w-full object-fill"
-                      : "max-h-full max-w-full rounded-lg object-contain"
-                  }
-                  style={
-                    activeProject.displayAspectRatio
-                      ? { aspectRatio: activeProject.displayAspectRatio }
-                      : {
-                          aspectRatio: `${activeProject.imageDimensions.width} / ${activeProject.imageDimensions.height}`,
-                          height: "auto",
-                          width: "auto",
-                        }
-                  }
-                  width={activeProject.imageDimensions.width}
-                  height={activeProject.imageDimensions.height}
-                />
-              </div>
+              <ProjectGallery project={activeProject} />
               <DialogHeader className="gap-2">
                 <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
                   {activeProject.category}
@@ -143,5 +124,104 @@ export function ProjectsSection() {
         </DialogContent>
       </Dialog>
     </Section>
+  );
+}
+
+function ProjectGallery({ project }: { project: Project }) {
+  const images: ProjectScreenshot[] = project.screenshots ?? [
+    {
+      src: project.image,
+      alt: project.imageAlt,
+      width: project.imageDimensions.width,
+      height: project.imageDimensions.height,
+    },
+  ];
+
+  if (images.length > 1) {
+    return <ProjectCarousel images={images} />;
+  }
+
+  return (
+    <div
+      className={`flex w-full items-center justify-center ${
+        project.displayAspectRatio
+          ? "aspect-video overflow-hidden rounded-lg"
+          : "h-[min(42dvh,28rem)]"
+      }`}
+    >
+      <img
+        src={images[0].src}
+        alt={images[0].alt}
+        className={
+          project.displayAspectRatio
+            ? "h-full w-full object-fill"
+            : "max-h-full max-w-full rounded-lg object-contain"
+        }
+        style={
+          project.displayAspectRatio
+            ? { aspectRatio: project.displayAspectRatio }
+            : {
+                aspectRatio: `${images[0].width} / ${images[0].height}`,
+                height: "auto",
+                width: "auto",
+              }
+        }
+        width={images[0].width}
+        height={images[0].height}
+      />
+    </div>
+  );
+}
+
+function ProjectCarousel({ images }: { images: ProjectScreenshot[] }) {
+  const [api, setApi] = useState<CarouselApi>();
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    const updateActiveSlide = () => setActiveSlide(api.selectedScrollSnap());
+    updateActiveSlide();
+    api.on("select", updateActiveSlide);
+
+    return () => {
+      api.off("select", updateActiveSlide);
+    };
+  }, [api]);
+
+  return (
+    <Carousel
+      setApi={setApi}
+      opts={{ align: "center" }}
+      aria-label="Project screenshots"
+      className="mx-auto w-full max-w-sm"
+    >
+      <CarouselContent>
+        {images.map((image) => (
+          <CarouselItem key={image.src}>
+            <div className="flex h-[min(42dvh,28rem)] items-center justify-center">
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="max-h-full max-w-full rounded-lg object-contain"
+                width={image.width}
+                height={image.height}
+              />
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious
+        aria-label="Previous screenshot"
+        className="left-2 border-0 bg-background/90 shadow-md"
+      />
+      <CarouselNext
+        aria-label="Next screenshot"
+        className="right-2 border-0 bg-background/90 shadow-md"
+      />
+      <p className="mt-2 text-center font-mono text-xs text-muted-foreground" aria-live="polite">
+        {activeSlide + 1} / {images.length}
+      </p>
+    </Carousel>
   );
 }

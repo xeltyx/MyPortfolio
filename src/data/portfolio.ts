@@ -2,6 +2,8 @@ import profileAsset from "@/assets/eriko-profile.png";
 import projBanking from "@/assets/project-banking.png";
 import projFlutter from "@/assets/project-flutter.jpg";
 import projPrototype from "@/assets/project-prototype.jpg";
+import projectPosBrands from "@/assets/project-pos-brands.png";
+import projectPosLogin from "@/assets/project-pos-login.png";
 import projectEcommerceImage from "@/assets/project-ecommerce-screen.png";
 import projectEnglishLearningImage from "@/assets/project-english-learning-screen.png";
 import projectLoyaltyImage from "@/assets/project-loyalty-screen.png";
@@ -28,9 +30,17 @@ export type Project = {
   image: string;
   imageAlt: string;
   imageDimensions: { width: number; height: number };
+  screenshots?: ProjectScreenshot[];
   displayAspectRatio?: string;
   link?: string;
   linkLabel?: string;
+};
+
+export type ProjectScreenshot = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
 };
 
 export const profileImage = profileAsset;
@@ -45,6 +55,26 @@ export const projects: Project[] = [
     image: projectPosImage,
     imageAlt: "BasicPOS application screen",
     imageDimensions: { width: 350, height: 652 },
+    screenshots: [
+      {
+        src: projectPosImage,
+        alt: "BasicPOS login screen",
+        width: 350,
+        height: 652,
+      },
+      {
+        src: projectPosLogin,
+        alt: "BasicPOS login screen on a mobile device",
+        width: 305,
+        height: 635,
+      },
+      {
+        src: projectPosBrands,
+        alt: "BasicPOS master brand list on a mobile device",
+        width: 295,
+        height: 647,
+      },
+    ],
     link: "https://www.figma.com/design/Yl8XTvvRbUlIBl7n866EES/Proyek_KP?node-id=265-21979&t=n1pFLE9bce2Vizun-1",
     linkLabel: "View prototype",
   },
