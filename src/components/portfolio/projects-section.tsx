@@ -147,18 +147,21 @@ export function ProjectsSection() {
 }
 
 function ProjectGallery({ project }: { project: Project }) {
-  const images: ProjectScreenshot[] = project.screenshots ?? [
-    {
-      src: project.image,
-      alt: project.imageAlt,
-      width: project.imageDimensions.width,
-      height: project.imageDimensions.height,
-    },
-  ];
+  const fallbackImage: ProjectScreenshot = {
+    src: project.image,
+    alt: project.imageAlt,
+    width: project.imageDimensions.width,
+    height: project.imageDimensions.height,
+  };
+  const images =
+    project.screenshots && project.screenshots.length > 0 ? project.screenshots : [fallbackImage];
 
   if (images.length > 1) {
     return <ProjectCarousel images={images} />;
   }
+
+  const image = images[0];
+  if (!image) return null;
 
   return (
     <div
@@ -169,8 +172,8 @@ function ProjectGallery({ project }: { project: Project }) {
       }`}
     >
       <img
-        src={images[0].src}
-        alt={images[0].alt}
+        src={image.src}
+        alt={image.alt}
         className={
           project.displayAspectRatio
             ? "h-full w-full object-fill"
@@ -180,13 +183,13 @@ function ProjectGallery({ project }: { project: Project }) {
           project.displayAspectRatio
             ? { aspectRatio: project.displayAspectRatio }
             : {
-                aspectRatio: `${images[0].width} / ${images[0].height}`,
+                aspectRatio: `${image.width} / ${image.height}`,
                 height: "auto",
                 width: "auto",
               }
         }
-        width={images[0].width}
-        height={images[0].height}
+        width={image.width}
+        height={image.height}
       />
     </div>
   );
