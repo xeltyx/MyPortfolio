@@ -16,7 +16,7 @@ export function ExperienceSection() {
   const [activeJob, setActiveJob] = useState<Job | null>(null);
 
   return (
-    <Section id="experience" label="03 — Experience">
+    <Section id="experience" label="03 — Experience" variant="right">
       <div className="grid gap-4">
         {jobs.map((job, index) => (
           <Reveal key={job.company} delay={index * 80}>

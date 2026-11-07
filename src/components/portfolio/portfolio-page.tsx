@@ -19,7 +19,7 @@ const navigationLinks = [
 
 export function PortfolioPage() {
   return (
-    <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
+    <div className="w-full px-5 sm:px-8 lg:px-12">
       <PortfolioCursor />
       <header className="sticky top-0 z-10 -mx-5 flex h-[4.5rem] items-center justify-between gap-4 border-b bg-background/85 px-5 shadow-sm shadow-black/[0.02] backdrop-blur-xl sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
         <a

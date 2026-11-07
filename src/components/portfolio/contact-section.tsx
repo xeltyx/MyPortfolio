@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./reveal";
@@ -28,7 +28,7 @@ export function ContactSection() {
   };
 
   return (
-    <Section id="contact" label="05 — Contact">
+    <Section id="contact" label="05 — Contact" variant="fade">
       <Reveal>
         <div className="contact-card rounded-3xl border p-6 shadow-sm sm:p-10 lg:p-14">
           <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground sm:text-xs">
@@ -39,26 +39,20 @@ export function ContactSection() {
             <br />
             <span className="text-accent">great together.</span>
           </h2>
-          <Button
-            type="button"
-            variant="ghost"
-            onClick={copyEmail}
-            aria-label="Copy email address"
-            className="link-underline mt-7 h-auto max-w-full justify-start whitespace-normal break-all rounded-none p-0 font-mono text-sm text-foreground hover:bg-transparent hover:text-foreground sm:text-lg"
-          >
-            {emailAddress}
-          </Button>
-          <div className="mt-5 flex flex-col gap-3 text-sm text-muted-foreground sm:flex-row sm:flex-wrap sm:gap-x-6">
-            <a
-              href="tel:+6281289770909"
-              className="inline-flex w-fit items-center gap-2 transition-colors hover:text-foreground"
+          <div className="mt-7 flex flex-col items-start gap-3 text-sm text-muted-foreground">
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={copyEmail}
+              aria-label="Copy email address"
+              className="link-underline h-auto w-fit max-w-full justify-start whitespace-normal break-all rounded-none p-0 text-left text-sm font-normal text-muted-foreground hover:bg-transparent hover:text-foreground"
             >
-              <Phone className="size-4 text-accent" aria-hidden="true" />
-              +62 812-8977-0909
-            </a>
+              <Mail className="size-4 shrink-0 text-accent" aria-hidden="true" />
+              {emailAddress}
+            </Button>
             <span className="inline-flex items-center gap-2">
               <MapPin className="size-4 text-accent" aria-hidden="true" />
-              Indonesia
+              Sidoarjo, Indonesia
             </span>
           </div>
           <div className="mt-8 flex gap-3">

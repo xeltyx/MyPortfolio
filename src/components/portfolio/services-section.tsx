@@ -28,7 +28,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <Section id="services" label="01 — Services">
+    <Section id="services" label="01 — Services" variant="up">
       <Reveal>
         <div className="mb-10 max-w-2xl sm:mb-12">
           <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">

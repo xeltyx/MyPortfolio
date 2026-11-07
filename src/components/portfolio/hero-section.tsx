@@ -5,8 +5,28 @@ import { Typer } from "./typer";
 
 export function HeroSection() {
   return (
-    <section className="hero-layout relative grid items-center gap-10 py-14 sm:py-20 md:grid-cols-[1.1fr_1fr] md:gap-10">
-      <div className="min-w-0">
+    <section className="hero-layout relative grid items-center gap-10 py-14 sm:py-20 md:grid-cols-[1fr_1.05fr] md:gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="hero-digital-rain" aria-hidden="true">
+        <span>0100101101010011011001010100101101010010</span>
+        <span>1011010010010110100101011010010010110100</span>
+        <span>0110100101101001010010110100101101001011</span>
+        <span>1100101001011010010110100100101101001010</span>
+        <span>0101101001001011010010101101001010010110</span>
+        <span>1010010110100101101001010010110100101101</span>
+        <span>0110100100101101001011010010100101101001</span>
+        <span>1001011010010110100100101101001010010110</span>
+        <span>0100101101001011010010010110100101101001</span>
+        <span>1010011010010110100101101001011010010110</span>
+        <span>0010110100101101001011010010010110100101</span>
+        <span>1101001010010110100101101001010010110100</span>
+        <span>0101101001011010010010110100101101001011</span>
+        <span>1010010110100100101101001011010010110100</span>
+        <span>0110100101101001011010010010110100101101</span>
+        <span>1001011010010100101101001011010010110100</span>
+        <span>0100101101001011010010110100100101101001</span>
+        <span>1100101001011010010110100100101101001011</span>
+      </div>
+      <div className="relative z-10 min-w-0">
         <h1
           className="animate-rise font-semibold leading-[1.06] tracking-tight"
           style={{ animationDelay: "120ms" }}
@@ -54,7 +74,7 @@ export function HeroSection() {
         </div>
       </div>
       <div
-        className="animate-rise relative mx-auto w-full max-w-lg"
+        className="animate-rise relative z-10 mx-auto w-full min-w-0"
         style={{ animationDelay: "300ms" }}
       >
         <CodeWorkbench />
@@ -62,7 +82,7 @@ export function HeroSection() {
       <a
         href="#services"
         aria-label="Scroll to services"
-        className="absolute bottom-4 left-0 hidden items-center gap-2 font-mono text-xs text-muted-foreground md:flex"
+        className="absolute bottom-4 left-0 z-10 hidden items-center gap-2 font-mono text-xs text-muted-foreground md:flex"
       >
         <ArrowDown className="size-3" /> Services
       </a>

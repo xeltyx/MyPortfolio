@@ -31,7 +31,7 @@ export function ProjectsSection() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   return (
-    <Section id="projects" label="04 — Projects">
+    <Section id="projects" label="04 — Projects" variant="scale">
       <div className="grid gap-4 sm:grid-cols-2">
         {projects.map((project, index) => {
           const Icon = categoryIcons[project.category] ?? Code2;
@@ -81,7 +81,7 @@ export function ProjectsSection() {
         })}
       </div>
       <Dialog open={!!activeProject} onOpenChange={(open) => !open && setActiveProject(null)}>
-        <DialogContent className="max-h-[90dvh] overflow-y-auto rounded-2xl p-6 sm:max-w-2xl sm:p-8">
+        <DialogContent className="hide-scrollbar max-h-[90dvh] overflow-y-auto rounded-2xl p-6 sm:max-w-2xl sm:p-8">
           {activeProject && (
             <div className="flex flex-col gap-6">
               <ProjectGallery project={activeProject} />

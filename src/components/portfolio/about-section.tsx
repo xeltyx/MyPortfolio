@@ -4,8 +4,8 @@ import { Section } from "./section";
 
 export function AboutSection() {
   return (
-    <Section id="about" label="02 — About">
-      <div className="grid items-start gap-10 md:grid-cols-[240px_1fr] lg:gap-16">
+    <Section id="about" label="02 — About" variant="left">
+      <div className="grid w-full items-start gap-10 md:grid-cols-[240px_1fr] lg:gap-16">
         <Reveal>
           <div className="profile-frame relative w-48 overflow-hidden rounded-2xl border border-border/70 p-1.5 shadow-lg shadow-black/[0.08] md:w-full">
             <img
