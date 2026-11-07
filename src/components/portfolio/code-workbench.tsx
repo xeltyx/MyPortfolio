@@ -279,83 +279,87 @@ export function CodeWorkbench() {
 
   return (
     <div className="w-full">
-      <div
-        role="group"
-        aria-label="Interactive code editor"
-        className="float-slow overflow-hidden rounded-xl border border-white/10 bg-[#0e1117] font-mono text-[10px] shadow-2xl shadow-black/30 sm:text-xs"
-      >
-        <div className="flex h-10 items-center justify-between border-b border-white/10 px-3">
-          <div className="flex items-center gap-1.5">
-            <span className="size-2 rounded-full bg-[#ff6b6b]" />
-            <span className="size-2 rounded-full bg-[#ffd166]" />
-            <span className="size-2 rounded-full bg-[#06d6a0]" />
+      <div className="w-full overflow-x-auto pb-1">
+        <div
+          role="group"
+          aria-label="Interactive code editor"
+          className="float-slow h-[340px] w-[480px] shrink-0 overflow-hidden rounded-xl border border-white/10 bg-[#0e1117] font-mono text-xs shadow-2xl shadow-black/30"
+        >
+          <div className="flex h-10 items-center justify-between border-b border-white/10 px-3">
+            <div className="flex items-center gap-1.5">
+              <span className="size-2 rounded-full bg-[#ff6b6b]" />
+              <span className="size-2 rounded-full bg-[#ffd166]" />
+              <span className="size-2 rounded-full bg-[#06d6a0]" />
+            </div>
+            <span className="text-[10px] text-slate-500">eriko-portfolio</span>
+            <span className="text-[10px] text-emerald-400">● Running</span>
           </div>
-          <span className="text-[9px] text-slate-500 sm:text-[10px]">eriko-portfolio</span>
-          <span className="text-[9px] text-emerald-400 sm:text-[10px]">● Running</span>
-        </div>
-        <div className="flex min-h-[245px] sm:min-h-[290px]">
-          <aside className="hidden w-36 shrink-0 overflow-y-auto border-r border-white/10 p-3 text-[9px] leading-6 text-slate-500 sm:block">
-            <p className="mb-1 uppercase tracking-wider text-slate-600">Explorer</p>
-            <p className="truncate text-slate-400" title={`${language.label} project`}>
-              ⌄ {language.label.toLowerCase()}-project
-            </p>
-            {language.folders.map((folder) => (
-              <div key={folder.name} className="mt-1">
-                <p className="truncate pl-2 text-slate-500" title={folder.name}>
-                  ⌄ {folder.name}
-                </p>
-                {folder.files.map((file) => (
+          <div className="flex h-[298px]">
+            <aside className="hidden w-36 shrink-0 overflow-y-auto border-r border-white/10 p-3 text-[9px] leading-6 text-slate-500 sm:block">
+              <p className="mb-1 uppercase tracking-wider text-slate-600">Explorer</p>
+              <p className="truncate text-slate-400" title={`${language.label} project`}>
+                ⌄ {language.label.toLowerCase()}-project
+              </p>
+              {language.folders.map((folder) => (
+                <div key={folder.name} className="mt-1">
+                  <p className="truncate pl-2 text-slate-500" title={folder.name}>
+                    ⌄ {folder.name}
+                  </p>
+                  {folder.files.map((file) => (
+                    <button
+                      key={file.path}
+                      type="button"
+                      onClick={() => selectFile(file)}
+                      aria-pressed={activeFile?.path === file.path}
+                      title={file.path}
+                      className={`block w-full truncate rounded pl-4 text-left transition-colors hover:bg-white/5 hover:text-slate-200 ${activeFile?.path === file.path ? "text-sky-300" : "text-slate-500"}`}
+                    >
+                      <span className={getFileColor(file.name)}>◇</span> {file.name}
+                    </button>
+                  ))}
+                </div>
+              ))}
+            </aside>
+            <div className="flex min-w-0 flex-1 flex-col">
+              <div
+                role="group"
+                aria-label="Open source file"
+                className="hide-scrollbar flex h-9 items-stretch overflow-x-auto border-b border-white/10 bg-white/[0.03]"
+              >
+                {files.map((file) => (
                   <button
                     key={file.path}
                     type="button"
                     onClick={() => selectFile(file)}
                     aria-pressed={activeFile?.path === file.path}
                     title={file.path}
-                    className={`block w-full truncate rounded pl-4 text-left transition-colors hover:bg-white/5 hover:text-slate-200 ${activeFile?.path === file.path ? "text-sky-300" : "text-slate-500"}`}
+                    className={`flex shrink-0 items-center gap-1.5 border-r border-white/10 px-3 text-[10px] transition-colors hover:bg-white/5 ${activeFile?.path === file.path ? "bg-[#0e1117] text-slate-200" : "text-slate-500"}`}
                   >
-                    <span className={getFileColor(file.name)}>◇</span> {file.name}
+                    <span className={getFileColor(file.name)}>◇</span>
+                    {file.name}
                   </button>
                 ))}
               </div>
-            ))}
-          </aside>
-          <div className="flex min-w-0 flex-1 flex-col">
-            <div
-              role="group"
-              aria-label="Open source file"
-              className="hide-scrollbar flex h-9 items-stretch overflow-x-auto border-b border-white/10 bg-white/[0.03]"
-            >
-              {files.map((file) => (
-                <button
-                  key={file.path}
-                  type="button"
-                  onClick={() => selectFile(file)}
-                  aria-pressed={activeFile?.path === file.path}
-                  title={file.path}
-                  className={`flex shrink-0 items-center gap-1.5 border-r border-white/10 px-2 text-[9px] transition-colors hover:bg-white/5 sm:px-3 sm:text-[10px] ${activeFile?.path === file.path ? "bg-[#0e1117] text-slate-200" : "text-slate-500"}`}
-                >
-                  <span className={getFileColor(file.name)}>◇</span>
-                  {file.name}
-                </button>
-              ))}
-            </div>
-            <pre className="flex-1 overflow-hidden px-3 py-3 text-[9px] leading-[1.8] text-slate-200 sm:px-4 sm:text-[11px]">
-              {lines.map((line, index) => (
-                <span key={index} className="flex min-h-[1.8em]">
-                  <span className="mr-3 w-3 shrink-0 select-none text-right text-slate-600">
-                    {index + 1}
+              <pre className="flex-1 overflow-hidden px-4 py-3 text-[11px] leading-[1.8] text-slate-200">
+                {lines.map((line, index) => (
+                  <span key={index} className="flex min-h-[1.8em]">
+                    <span className="mr-3 w-3 shrink-0 select-none text-right text-slate-600">
+                      {index + 1}
+                    </span>
+                    <span className="whitespace-pre-wrap break-words">
+                      {line || "\u00a0"}
+                      {index === lines.length - 1 && (
+                        <span className="caret text-amber-300">_</span>
+                      )}
+                    </span>
                   </span>
-                  <span className="whitespace-pre-wrap break-words">
-                    {line || "\u00a0"}
-                    {index === lines.length - 1 && <span className="caret text-amber-300">_</span>}
-                  </span>
-                </span>
-              ))}
-            </pre>
-            <div className="flex h-8 items-center gap-2 border-t border-white/10 px-3 text-[9px] text-slate-500 sm:text-[10px]">
-              <span className="text-emerald-400">❯</span>
-              <span>{language.command}</span>
-              <span className="ml-auto text-emerald-400">ready</span>
+                ))}
+              </pre>
+              <div className="flex h-8 items-center gap-2 border-t border-white/10 px-3 text-[10px] text-slate-500">
+                <span className="text-emerald-400">❯</span>
+                <span>{language.command}</span>
+                <span className="ml-auto text-emerald-400">ready</span>
+              </div>
             </div>
           </div>
         </div>

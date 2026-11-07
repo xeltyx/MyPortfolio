@@ -22,9 +22,8 @@ export function HeroSection() {
           className="animate-rise mt-4 text-2xl font-medium leading-snug tracking-tight sm:text-3xl lg:text-[2.1rem]"
           style={{ animationDelay: "180ms" }}
         >
-          <span className="block">Web &amp; App Developer</span>
-          <span className="mt-1 block text-muted-foreground">
-            building <Typer words={["web apps.", "mobile apps.", "desktop apps."]} />
+          <span className="block">
+            <Typer words={["WEB & APP DEVELOPER"]} />
           </span>
         </h2>
         <p

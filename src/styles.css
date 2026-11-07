@@ -123,7 +123,20 @@
 @utility float-slow { animation: float 7s ease-in-out infinite reverse; }
 
 
-.typing-word { display: inline-block; width: 14ch; max-width: 100%; min-height: 1.4em; white-space: nowrap; vertical-align: bottom; }
+.typing-word {
+  display: inline-grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 100%;
+  min-width: 0;
+  vertical-align: bottom;
+}
+.typing-word__sizer,
+.typing-word__text {
+  grid-area: 1 / 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.typing-word__sizer { visibility: hidden; }
 .hide-scrollbar { scrollbar-width: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hero-layout { min-height: 650px; }

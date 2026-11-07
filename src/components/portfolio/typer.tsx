@@ -23,8 +23,13 @@ export function Typer({ words }: { words: string[] }) {
   }, [text, deleting, wordIndex, words]);
 
   return (
-    <span className="typing-word text-accent" aria-label="web, desktop, and mobile applications">
-      <span aria-hidden="true">
+    <span className="typing-word text-accent" aria-label={words.join(", ")}>
+      {words.map((word) => (
+        <span key={word} className="typing-word__sizer" aria-hidden="true">
+          {word}_
+        </span>
+      ))}
+      <span className="typing-word__text" aria-hidden="true">
         {text}
         <span className="caret">_</span>
       </span>
