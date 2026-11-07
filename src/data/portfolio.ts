@@ -34,6 +34,7 @@ export type Project = {
   displayAspectRatio?: string;
   link?: string;
   linkLabel?: string;
+  deploymentLink?: string;
 };
 
 export type ProjectScreenshot = {
@@ -132,6 +133,7 @@ export const projects: Project[] = [
     imageAlt: "OCTO Biz corporate banking sign-in page",
     imageDimensions: { width: 1552, height: 768 },
     displayAspectRatio: "16 / 9",
+    deploymentLink: "https://www.octobiz.co.id/digital/web/gl/bfo/login",
   },
 ];
 

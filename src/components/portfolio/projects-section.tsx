@@ -29,6 +29,9 @@ const categoryIcons: Record<string, typeof Code2> = {
 
 export function ProjectsSection() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const hasProjectLinks = Boolean(
+    activeProject?.deploymentLink || (activeProject?.link && activeProject?.linkLabel),
+  );
 
   return (
     <Section id="projects" label="04 — Projects" variant="scale">
@@ -111,13 +114,29 @@ export function ProjectsSection() {
                   ))}
                 </div>
               </div>
-              {activeProject.link && activeProject.linkLabel && (
-                <Button asChild className="h-11 w-fit rounded-full px-5">
-                  <a href={activeProject.link} target="_blank" rel="noreferrer">
-                    {activeProject.linkLabel}
-                    <ArrowUpRight className="size-4" />
-                  </a>
-                </Button>
+              {hasProjectLinks && (
+                <div className="flex flex-wrap gap-3">
+                  {activeProject.link && activeProject.linkLabel && (
+                    <Button
+                      asChild
+                      variant={activeProject.deploymentLink ? "outline" : "default"}
+                      className="h-11 w-fit rounded-full px-5"
+                    >
+                      <a href={activeProject.link} target="_blank" rel="noreferrer">
+                        {activeProject.linkLabel}
+                        <ArrowUpRight className="size-4" />
+                      </a>
+                    </Button>
+                  )}
+                  {activeProject.deploymentLink && (
+                    <Button asChild className="h-11 w-fit rounded-full px-5">
+                      <a href={activeProject.deploymentLink} target="_blank" rel="noreferrer">
+                        View deployment
+                        <ArrowUpRight className="size-4" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
               )}
             </div>
           )}
