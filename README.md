@@ -25,4 +25,4 @@ Open the localhost URL printed in the terminal.
 
 Push changes to `main` to build and deploy the static site with GitHub Actions.
 In the repository's **Settings → Pages**, set the source to **GitHub Actions**.
-The site will be available at `https://xeltyx.github.io/MyPortfolio/`.
+The site will be available at `https://xeltyx.github.io/personal-portfolio/`.
