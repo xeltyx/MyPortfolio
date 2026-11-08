@@ -22,10 +22,11 @@ export function AboutSection() {
         </Reveal>
         <Reveal delay={150}>
           <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-            Passionate about programming and creating digital products that are useful, intuitive,
-            and enjoyable to use. With a background in Informatics Engineering and experience across
-            web and mobile development, I enjoy learning new technologies and turning ideas into
-            polished user experiences.
+            I&apos;m a front-end and mobile developer with 2 years of professional web development
+            experience and a degree in Informatics Engineering. I build responsive web applications
+            with React and TypeScript, integrate REST APIs, and work directly with backend and QA
+            teams to deliver reliable user experiences. My experience also includes UI/UX design and
+            developing mobile applications with Flutter.
           </p>
           <div className="mt-8 rounded-xl border bg-card/70 p-5 text-sm shadow-sm">
             <div className="flex flex-wrap justify-between gap-2">

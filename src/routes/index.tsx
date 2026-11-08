@@ -8,13 +8,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Eriko Ferdian is a passionate programmer with 2+ years of web development experience and 6 months of UI/UX design and mobile development experience.",
+          "Eriko Ferdian is a front-end and mobile developer with 2 years of professional web development experience, UI/UX design experience, and hands-on Flutter app development.",
       },
       { property: "og:title", content: "Eriko Ferdian" },
       {
         property: "og:description",
         content:
-          "Passionate programmer with 2+ years of experience in web development and 6 months of experience in UI/UX design and mobile development.",
+          "Front-end and mobile developer with 2 years of professional web development experience, UI/UX design experience, and hands-on Flutter app development.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

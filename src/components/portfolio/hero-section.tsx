@@ -43,16 +43,16 @@ export function HeroSection() {
           style={{ animationDelay: "180ms" }}
         >
           <span className="block">
-            <Typer words={["WEB & MOBILE DEVELOPER"]} />
+            <Typer words={["FRONT-END & MOBILE DEVELOPER"]} />
           </span>
         </h2>
         <p
           className="animate-rise mt-6 max-w-lg text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8"
           style={{ animationDelay: "240ms" }}
         >
-          Passionate programmer with 2+ years of experience in web development and 6 months of
-          experience in UI/UX design and mobile development. I build responsive applications with
-          React, TypeScript, and Flutter.
+          Front-end and mobile developer with 2 years of professional experience building web
+          applications. I also have UI/UX design experience and hands-on experience building mobile
+          applications with Flutter.
         </p>
         <div className="animate-rise mt-9 flex flex-wrap gap-3" style={{ animationDelay: "360ms" }}>
           <Button asChild className="group h-12 rounded-full px-6 shadow-md shadow-primary/10">

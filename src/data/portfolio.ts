@@ -51,9 +51,9 @@ export const projects: Project[] = [
   {
     title: "Flutter Point Of Sale",
     category: "Mobile app",
-    summary: "An Android point-of-sale app built with Flutter.",
+    summary: "An Android point-of-sale app built with Flutter and REST API integration.",
     description:
-      "In this project, I designed the UI/UX prototype for an Android point-of-sale app, then built the app with Flutter and integrated it with REST APIs.",
+      "Designed the UI/UX prototype in Figma and developed the Android point-of-sale app with Flutter, integrating REST APIs.",
     tags: ["Flutter", "Dart", "FIGMA"],
     image: projectPosImage,
     imageAlt: "BasicPOS application screen",
@@ -84,9 +84,9 @@ export const projects: Project[] = [
   {
     title: "Flutter Loyalty App",
     category: "Mobile app",
-    summary: "A Flutter loyalty app with barcode functionality.",
+    summary: "A Flutter loyalty app featuring barcode functionality.",
     description:
-      "In this project, I created a loyalty-based mobile app with Flutter and added barcode functionality using a custom plugin.",
+      "Developed a loyalty app with Flutter and implemented barcode functionality using a custom plugin.",
     tags: ["Flutter", "Dart"],
     image: projectLoyaltyImage,
     imageAlt: "Flutter loyalty application screen showing rewards and benefits",
@@ -95,9 +95,9 @@ export const projects: Project[] = [
   {
     title: "Milim Game Development",
     category: "Game development",
-    summary: "A top-down survival horror game developed with Unreal Engine 4.",
+    summary: "A top-down survival horror game built with Unreal Engine 4.",
     description:
-      "In this project, I developed a top-down survival horror game in Unreal Engine 4, where players must run and hide from enemies.",
+      "Developed a top-down survival horror game in Unreal Engine 4, with gameplay centered on evading enemies and staying hidden.",
     tags: ["Unreal Engine 4", "Blueprints"],
     image: projectMilimImage,
     imageAlt: "Gameplay screenshot from the Milim survival horror game",
@@ -108,9 +108,9 @@ export const projects: Project[] = [
   {
     title: "E-Commerce for Gaming Equipment",
     category: "Web application",
-    summary: "An online store for gaming equipment.",
+    summary: "An online gaming equipment store with integrated payment processing.",
     description:
-      "In this project, I built an e-commerce website for gaming equipment with C# and .NET, integrated the Doku payment gateway, and used MySQL and Oracle databases.",
+      "Built a gaming equipment e-commerce website with C# and .NET, integrated the Doku payment gateway, and worked with MySQL and Oracle databases.",
     tags: ["C#", ".NET", "Doku API", "MySQL"],
     image: projectEcommerceImage,
     imageAlt: "Gaming equipment e-commerce website screen",
@@ -121,9 +121,9 @@ export const projects: Project[] = [
   {
     title: "English Learning App",
     category: "Mobile app",
-    summary: "An Android English-learning app with courses and a personal diary.",
+    summary: "An Android English-learning app with course content and a personal diary.",
     description:
-      "In this project, I created an Android English-learning course app with custom animation and voice-over plugins, as well as a personal diary feature.",
+      "Developed an Android English-learning app with course content, custom animation and voice-over plugins, and a personal diary feature.",
     tags: ["Flutter", "Dart", "Android"],
     image: projectEnglishLearningImage,
     imageAlt: "English learning application screen",
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     category: "Corporate banking",
     summary: "A corporate internet banking platform for businesses.",
     description:
-      "In this project, I contributed to the OCTO Biz platform by building responsive interfaces with React.js and TypeScript and integrating APIs in collaboration with design and backend teams. Additionally, I collaborated with the QA team to minimize bugs and ensure the application runs smoothly.",
+      "Contributed to the OCTO Biz corporate banking platform by building responsive interfaces with React and TypeScript and integrating REST APIs. Collaborated with design, backend, and QA teams to resolve issues and support a reliable user experience.",
     tags: ["React.js", "TypeScript", "REST API", "Yup", "React Hook"],
     image: projBanking,
     imageAlt: "OCTO Biz corporate banking sign-in page",
@@ -152,12 +152,12 @@ export const jobs: Job[] = [
     period: "Oct 2024 — Present",
     image: projBanking,
     tags: ["React.js", "TypeScript", "REST API", "Yup", "React Hook"],
-    summary: "Corporate Internet Banking division — NGB (New Generation Bizchannel) project team.",
+    summary: "Corporate internet banking — New Generation Bizchannel (NGB) project team.",
     points: [
-      "Collaborated with external vendors to develop and enhance the OCTO Biz Website for corporate users using React.js, React Hook, Yup and TypeScript.",
-      "Participated in daily Agile ceremonies (sprint planning, standups, retrospectives) within a cross-functional team of 20+ members.",
-      "Completed backlog items every sprint with a 99% on-time rate, ensuring stable integration with backend services and APIs.",
-      "Identified and resolved 30+ issues and additional requests during testing.",
+      "Partnered with external vendors to build and enhance the OCTO Biz website for corporate users using React, TypeScript, React Hooks, and Yup.",
+      "Contributed to sprint planning, daily stand-ups, and retrospectives as part of a cross-functional team of 20+ members.",
+      "Completed sprint backlog items with a 99% on-time rate while maintaining stable integrations with backend services and APIs.",
+      "Resolved 30+ issues and additional requests identified during testing.",
     ],
   },
   {
@@ -168,11 +168,11 @@ export const jobs: Job[] = [
     image: projFlutter,
     github: "https://github.com/erikoferdian/flutter-apps",
     tags: ["Flutter", "Dart", "REST API"],
-    summary: "Cross-platform mobile apps for various clients.",
+    summary: "Cross-platform mobile applications developed for multiple clients.",
     points: [
-      "Developed cross-platform mobile applications using Flutter for various clients.",
-      "Delivered projects on time, handled revisions from client feedback and ensured satisfaction with the final product.",
-      "Responsible for UI implementation and responsive, high-performance app experiences.",
+      "Built cross-platform mobile applications for multiple clients using Flutter.",
+      "Delivered projects on schedule, incorporated client feedback, and refined features to meet project requirements.",
+      "Implemented user interfaces and developed responsive, high-performance mobile experiences.",
     ],
   },
   {
@@ -183,22 +183,22 @@ export const jobs: Job[] = [
     image: projPrototype,
     github: "https://github.com/erikoferdian/mitra-andal-app",
     tags: ["UI/UX", "Flutter", "Dart", "REST API"],
-    summary: "From UI/UX design to a working app.",
+    summary: "Delivered a mobile app from UI/UX design through Flutter development.",
     points: [
-      "Designed UI and UX based on client wishes.",
-      "Created prototypes to map out the application flow.",
-      "Built the application from the prototype using Dart, Flutter and REST API.",
+      "Designed user interfaces and experiences based on client requirements.",
+      "Created prototypes to define application flows.",
+      "Developed the application in Flutter and Dart, integrating REST APIs.",
     ],
   },
 ];
 
 export const skills = [
-  "React JS",
+  "React.js",
   "TypeScript",
   "HTML / CSS",
   "Figma",
   "REST API",
-  "SQL",
+  "SQL Database",
   "Flutter / Dart",
   "Laravel & PHP",
   "Node.js",

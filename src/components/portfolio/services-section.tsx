@@ -7,21 +7,21 @@ const services = [
     Icon: Palette,
     title: "UI/UX Design",
     description:
-      "I turn requirements into clear user flows and polished interfaces, balancing usability, accessibility, and visual consistency across every screen and interaction.",
+      "I turn product requirements into clear user flows, wireframes, and interactive prototypes in Figma. I design consistent interfaces around the needs of their users, then refine layouts and interactions to make each screen intuitive and easy to navigate.",
     number: "01",
   },
   {
     Icon: Code2,
-    title: "Web Development",
+    title: "Front-End Development",
     description:
-      "I build responsive web experiences with thoughtful interactions, maintainable code, and reliable integrations, keeping performance and accessibility in mind.",
+      "I turn UI designs into responsive, interactive web interfaces using React and TypeScript. I build maintainable components, connect the interface to REST APIs, and work directly with backend and QA teams to resolve issues and deliver a reliable experience across screen sizes.",
     number: "02",
   },
   {
     Icon: Smartphone,
-    title: "Mobile Development",
+    title: "Mobile App Development",
     description:
-      "I develop mobile applications with intuitive workflows, polished interfaces, and dependable features that make everyday tasks easier.",
+      "I build mobile applications with Flutter and Dart, from implementing screens and app flows to integrating REST APIs. My project experience includes loyalty features, barcode functionality, and learning-app content with animation and voice-over support.",
     number: "03",
   },
 ];
@@ -35,8 +35,9 @@ export function ServicesSection() {
             How I can help
           </h2>
           <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
-            From shaping an idea into a user-friendly design to building and refining the finished
-            product, I can help at every step.
+            I contribute to digital products from designing clear user experiences to building
+            responsive web interfaces and mobile applications, with a focus on usability,
+            maintainability, and reliable integrations.
           </p>
         </div>
       </Reveal>

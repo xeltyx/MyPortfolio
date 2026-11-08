@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-type LanguageId = "typescript" | "laravel" | "html-css";
+type LanguageId = "typescript" | "flutter" | "html-css";
 type WorkbenchFile = { path: string; name: string; content: string };
 type WorkbenchFolder = { name: string; files: WorkbenchFile[] };
 type WorkbenchLanguage = {
@@ -87,72 +87,118 @@ export default App;`,
       },
     ],
   },
-  laravel: {
-    label: "Laravel",
-    command: "php artisan serve",
+  flutter: {
+    label: "Flutter",
+    command: "flutter run",
     folders: [
       {
-        name: "routes",
+        name: "lib",
         files: [
           {
-            path: "routes/web.php",
-            name: "web.php",
-            content: `<?php
+            path: "lib/main.dart",
+            name: "main.dart",
+            content: `import 'package:flutter/material.dart';
+import 'screens/home_screen.dart';
 
-use App\\Http\\Controllers\\ProjectController;
-use Illuminate\\Support\\Facades\\Route;
+void main() {
+  runApp(const PortfolioApp());
+}
 
-Route::get('/projects', [ProjectController::class, 'index'])
-    ->name('projects.index');`,
-          },
-        ],
-      },
-      {
-        name: "app/Http/Controllers",
-        files: [
-          {
-            path: "app/Http/Controllers/ProjectController.php",
-            name: "ProjectController.php",
-            content: `<?php
+class PortfolioApp extends StatelessWidget {
+  const PortfolioApp({super.key});
 
-namespace App\\Http\\Controllers;
-
-use App\\Models\\Project;
-use Illuminate\\Routing\\Controller;
-use Illuminate\\View\\View;
-
-class ProjectController extends Controller
-{
-    public function index(): View
-    {
-        $projects = Project::latest()->get();
-
-        return view('projects.index', compact('projects'));
-    }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'My Portfolio',
+      theme: ThemeData(useMaterial3: true),
+      home: const HomeScreen(),
+    );
+  }
 }`,
           },
         ],
       },
       {
-        name: "resources/views/projects",
+        name: "lib/screens",
         files: [
           {
-            path: "resources/views/projects/index.blade.php",
-            name: "index.blade.php",
-            content: `@extends('layouts.app')
+            path: "lib/screens/home_screen.dart",
+            name: "home_screen.dart",
+            content: `import 'package:flutter/material.dart';
+import '../widgets/project_card.dart';
 
-@section('content')
-  <main class="projects">
-    <h1>My Projects</h1>
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
-    @foreach ($projects as $project)
-      <article class="project-card">
-        <h2>{{ $project->title }}</h2>
-        <p>{{ $project->description }}</p>
-      </article>
-    @endforeach
-  </main>
-@endsection`,
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('My Projects')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: const [
+          ProjectCard(title: 'Loyalty App', tech: 'Flutter'),
+          ProjectCard(title: 'English Learning', tech: 'Flutter'),
+        ],
+      ),
+    );
+  }
+}`,
+          },
+        ],
+      },
+      {
+        name: "lib/widgets",
+        files: [
+          {
+            path: "lib/widgets/project_card.dart",
+            name: "project_card.dart",
+            content: `import 'package:flutter/material.dart';
+
+class ProjectCard extends StatelessWidget {
+  const ProjectCard({
+    required this.title,
+    required this.tech,
+    super.key,
+  });
+
+  final String title;
+  final String tech;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        title: Text(title),
+        subtitle: Text(tech),
+        trailing: const Icon(Icons.arrow_forward),
+      ),
+    );
+  }
+}`,
+          },
+        ],
+      },
+      {
+        name: "root",
+        files: [
+          {
+            path: "pubspec.yaml",
+            name: "pubspec.yaml",
+            content: `name: my_portfolio
+description: A Flutter portfolio app
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true`,
           },
         ],
       },
@@ -225,8 +271,8 @@ const languageOptions = Object.entries(workbenchLanguages) as [LanguageId, Workb
 
 function getFileColor(fileName: string) {
   if (fileName.endsWith(".tsx")) return "text-sky-400";
-  if (fileName.endsWith(".php")) return "text-purple-400";
-  if (fileName.endsWith(".blade.php")) return "text-rose-400";
+  if (fileName.endsWith(".dart")) return "text-sky-500";
+  if (fileName.endsWith(".yaml")) return "text-rose-400";
   if (fileName.endsWith(".html")) return "text-orange-400";
   if (fileName.endsWith(".css")) return "text-blue-400";
   if (fileName.endsWith(".svg")) return "text-amber-400";
