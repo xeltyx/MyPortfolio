@@ -20,30 +20,29 @@ const workbenchLanguages: Record<LanguageId, WorkbenchLanguage> = {
           {
             path: "src/App.tsx",
             name: "App.tsx",
-            content: `import { useState } from "react";
+            content: `
+            import { useState } from "react";
+            function App() {
+              const [role, setRole] = useState("Developer");
 
-function App() {
-  const [role, setRole] = useState("Developer");
-
-  return <h1>Hello, {role}!</h1>;
-}
-
-export default App;`,
+              return <h1>Hello, {role}!</h1>;
+            }
+            export default App;`,
           },
           {
             path: "src/index.css",
             name: "index.css",
-            content: `:root {
-  font-family: "Inter", sans-serif;
-  color: #f8fafc;
-  background: #0e1117;
-}
-
-.hero {
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-}`,
+            content: `
+            :root {
+              font-family: "Inter", sans-serif;
+              color: #f8fafc;
+              background: #0e1117;
+            }
+            .hero {
+              display: grid;
+              place-items: center;
+              min-height: 100vh;
+            }`,
           },
         ],
       },
@@ -53,13 +52,14 @@ export default App;`,
           {
             path: "public/favicon.svg",
             name: "favicon.svg",
-            content: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#111827" />
-  <text x="50%" y="54%" fill="#f8fafc" text-anchor="middle"
-    dominant-baseline="middle" font-family="sans-serif" font-size="32">
-    ef
-  </text>
-</svg>`,
+            content: `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+              <rect width="64" height="64" rx="16" fill="#111827" />
+              <text x="50%" y="54%" fill="#f8fafc" text-anchor="middle"
+                dominant-baseline="middle" font-family="sans-serif" font-size="32">
+                ef
+              </text>
+            </svg>`,
           },
         ],
       },
@@ -70,18 +70,18 @@ export default App;`,
             path: "package.json",
             name: "package.json",
             content: `{
-  "name": "eriko-portfolio",
-  "private": true,
-  "scripts": {
-    "start": "vite dev",
-    "build": "vite build",
-    "test": "vitest run"
-  },
-  "dependencies": {
-    "react": "^19.2.0",
-    "@tanstack/react-router": "1.170.41"
-  }
-}`,
+              "name": "eriko-portfolio",
+              "private": true,
+              "scripts": {
+                "start": "vite dev",
+                "build": "vite build",
+                "test": "vitest run"
+              },
+              "dependencies": {
+                "react": "^19.2.0",
+                "@tanstack/react-router": "1.170.41"
+              }
+            }`,
           },
         ],
       },
@@ -97,25 +97,26 @@ export default App;`,
           {
             path: "lib/main.dart",
             name: "main.dart",
-            content: `import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+            content: `
+            import 'package:flutter/material.dart';
+            import 'screens/home_screen.dart';
 
-void main() {
-  runApp(const PortfolioApp());
-}
+            void main() {
+              runApp(const PortfolioApp());
+            }
 
-class PortfolioApp extends StatelessWidget {
-  const PortfolioApp({super.key});
+            class PortfolioApp extends StatelessWidget {
+              const PortfolioApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My Portfolio',
-      theme: ThemeData(useMaterial3: true),
-      home: const HomeScreen(),
-    );
-  }
-}`,
+              @override
+              Widget build(BuildContext context) {
+                return MaterialApp(
+                  title: 'My Portfolio',
+                  theme: ThemeData(useMaterial3: true),
+                  home: const HomeScreen(),
+                );
+              }
+            }`,
           },
         ],
       },
@@ -125,26 +126,27 @@ class PortfolioApp extends StatelessWidget {
           {
             path: "lib/screens/home_screen.dart",
             name: "home_screen.dart",
-            content: `import 'package:flutter/material.dart';
-import '../widgets/project_card.dart';
+            content: `
+            import 'package:flutter/material.dart';
+            import '../widgets/project_card.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+            class HomeScreen extends StatelessWidget {
+              const HomeScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('My Projects')),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: const [
-          ProjectCard(title: 'Loyalty App', tech: 'Flutter'),
-          ProjectCard(title: 'English Learning', tech: 'Flutter'),
-        ],
-      ),
-    );
-  }
-}`,
+              @override
+              Widget build(BuildContext context) {
+                return Scaffold(
+                  appBar: AppBar(title: const Text('My Projects')),
+                  body: ListView(
+                    padding: const EdgeInsets.all(16),
+                    children: const [
+                      ProjectCard(title: 'Loyalty App', tech: 'Flutter'),
+                      ProjectCard(title: 'English Learning', tech: 'Flutter'),
+                    ],
+                  ),
+                );
+              }
+            }`,
           },
         ],
       },
@@ -154,29 +156,29 @@ class HomeScreen extends StatelessWidget {
           {
             path: "lib/widgets/project_card.dart",
             name: "project_card.dart",
-            content: `import 'package:flutter/material.dart';
+            content: `
+            import 'package:flutter/material.dart';
+            class ProjectCard extends StatelessWidget {
+              const ProjectCard({
+                required this.title,
+                required this.tech,
+                super.key,
+              });
 
-class ProjectCard extends StatelessWidget {
-  const ProjectCard({
-    required this.title,
-    required this.tech,
-    super.key,
-  });
+              final String title;
+              final String tech;
 
-  final String title;
-  final String tech;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Text(title),
-        subtitle: Text(tech),
-        trailing: const Icon(Icons.arrow_forward),
-      ),
-    );
-  }
-}`,
+              @override
+              Widget build(BuildContext context) {
+                return Card(
+                  child: ListTile(
+                    title: Text(title),
+                    subtitle: Text(tech),
+                    trailing: const Icon(Icons.arrow_forward),
+                  ),
+                );
+              }
+            }`,
           },
         ],
       },

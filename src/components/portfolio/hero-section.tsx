@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CodeWorkbench } from "./code-workbench";
 import { Typer } from "./typer";

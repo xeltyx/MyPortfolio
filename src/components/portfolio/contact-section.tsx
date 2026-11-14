@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./reveal";
@@ -134,10 +134,6 @@ export function ContactSection() {
                   <Mail aria-hidden="true" />
                   <span>{emailAddress}</span>
                 </Button>
-                <a href="tel:+6281289770909" className="contact-aside__link">
-                  <Phone aria-hidden="true" />
-                  <span>081289770909</span>
-                </a>
                 <span className="contact-aside__link">
                   <MapPin aria-hidden="true" />
                   <span>Sidoarjo, Indonesia</span>
